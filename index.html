@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC-Flipping Web-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+  <h1>PC Flipping Manager</h1>
+  <button id="toggle-darkmode">Dark Mode</button>
+  <button id="export-data">Export JSON</button>
+  <input type="file" id="import-data" accept="application/json" style="display:none">
+  <button id="import-data-btn">Import JSON</button>
+</header>
+
+    <main>
+        <!-- Navigation -->
+        <nav>
+            <button data-tab="inventory">Inventar</button>
+            <button data-tab="builds">Builds</button>
+            <button data-tab="bundles">Bundles</button>
+            <button data-tab="finance">Finanzen</button>
+        </nav>
+
+        <!-- Inventarverwaltung -->
+        <section id="inventory" class="tab">
+            <div class="controls">
+                <button id="addPartBtn">Teil hinzufügen</button>
+                <input type="text" id="searchPart" placeholder="Suchen...">
+                <select id="filterCategory">
+                    <option value="">Alle Kategorien</option>
+                </select>
+                <select id="viewMode">
+                    <option value="table">Tabellenansicht</option>
+                    <option value="cards">Kartenansicht</option>
+                </select>
+            </div>
+            <div id="inventoryContainer"></div>
+        </section>
+
+        <!-- Build-Management -->
+        <section id="builds" class="tab">
+            <button id="addBuildBtn">Build erstellen</button>
+            <div id="buildsContainer"></div>
+        </section>
+
+        <!-- Bundle-Verwaltung -->
+        <section id="bundles" class="tab">
+            <button id="addBundleBtn">Bundle erstellen</button>
+            <div id="bundlesContainer"></div>
+        </section>
+
+        <!-- Finanzübersicht -->
+        <section id="finance" class="tab">
+            <h2>Finanzen</h2>
+            <div id="financeSummary"></div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
